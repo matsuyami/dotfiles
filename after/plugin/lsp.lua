@@ -70,6 +70,8 @@ local function config(_config)
 end
 
 
+require('lspconfig').vuels.setup(config())
+require('lspconfig').jedi_language_server.setup(config())
 require("lspconfig").zls.setup(config())
 require("lspconfig").tsserver.setup(config())
 require("lspconfig").ccls.setup(config())
@@ -85,6 +87,21 @@ require("lspconfig").gopls.setup(config({
 		},
 	},
 }))
+
+require('lspconfig').emmet_ls.setup({
+    -- on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+})
+
 
 require'lspconfig'.sumneko_lua.setup {
   settings = {

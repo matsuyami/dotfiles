@@ -17,5 +17,6 @@ return require('packer').startup(function(use)
     use('tzachar/cmp-tabnine', { run = "./install.sh" })
 
     use 'jiangmiao/auto-pairs'
+    use 'aca/emmet-ls'
 end)
 
