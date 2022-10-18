@@ -14,7 +14,6 @@ return require('packer').startup(function(use)
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
     use 'preservim/nerdtree'
-    use('tzachar/cmp-tabnine', { run = "./install.sh" })
 
     use 'jiangmiao/auto-pairs'
     use 'aca/emmet-ls'
