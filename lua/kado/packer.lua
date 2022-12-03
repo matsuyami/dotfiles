@@ -15,6 +15,15 @@ return require('packer').startup(function(use)
     use 'saadparwaiz1/cmp_luasnip'
     use 'preservim/nerdtree'
 
+    use("nvim-treesitter/nvim-treesitter", {
+        run = ":TSUpdate"
+    })
+
+    use("nvim-telescope/telescope.nvim")
+    use("nvim-lua/plenary.nvim")
+
+
+
     use 'jiangmiao/auto-pairs'
     use 'aca/emmet-ls'
 end)
