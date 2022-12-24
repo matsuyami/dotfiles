@@ -21,6 +21,11 @@ return require('packer').startup(function(use)
 
     use("nvim-telescope/telescope.nvim")
     use("nvim-lua/plenary.nvim")
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c4d2835edc4eb96bb83a8c02fd084b8b06fc66f9
 
     use 'jiangmiao/auto-pairs'
     use 'aca/emmet-ls'

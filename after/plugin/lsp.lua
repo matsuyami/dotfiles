@@ -74,7 +74,6 @@ require('lspconfig').vuels.setup(config())
 require('lspconfig').jedi_language_server.setup(config())
 require("lspconfig").zls.setup(config())
 require("lspconfig").tsserver.setup(config())
-require("lspconfig").ccls.setup(config())
 require("lspconfig").cssls.setup(config())
 require("lspconfig").gopls.setup(config({
 	cmd = { "gopls", "serve" },
