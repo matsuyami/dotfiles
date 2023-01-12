@@ -24,7 +24,7 @@ cmp.setup({
     },
 
 	mapping = cmp.mapping.preset.insert({
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
@@ -53,7 +53,7 @@ cmp.setup({
 
 local function config(_config)
     return vim.tbl_deep_extend("force", {
-        capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()), 
+        capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()), 
         on_attach = function() 
             nnoremap("gd", function() vim.lsp.buf.definition() end)
 			nnoremap("K", function() vim.lsp.buf.hover() end)
@@ -70,6 +70,7 @@ local function config(_config)
 end
 
 
+require('lspconfig').intelephense.setup(config())
 require('lspconfig').vuels.setup(config())
 require('lspconfig').jedi_language_server.setup(config())
 require("lspconfig").zls.setup(config())

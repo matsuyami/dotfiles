@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
         run = ":TSUpdate"
     })
 
+
     use("nvim-telescope/telescope.nvim")
     use("nvim-lua/plenary.nvim")
 
