@@ -39,12 +39,6 @@ cmp.setup({
 		format = function(entry, vim_item)
 			vim_item.kind = lspkind.presets.default[vim_item.kind]
 			local menu = source_mapping[entry.source.name]
-			if entry.source.name == "cmp_tabnine" then
-				if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-					menu = entry.completion_item.data.detail .. " " .. menu
-				end
-				vim_item.kind = ""
-			end
 			vim_item.menu = menu
 			return vim_item
         end,
@@ -88,21 +82,6 @@ require("lspconfig").gopls.setup(config({
 	},
 }))
 
-require('lspconfig').emmet_ls.setup({
-    -- on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
-    init_options = {
-      html = {
-        options = {
-          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          ["bem.enabled"] = true,
-        },
-      },
-    }
-})
-
-
 require'lspconfig'.sumneko_lua.setup {
   settings = {
     Lua = {
@@ -125,6 +104,20 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
+
+local null_ls = require("null-ls")
+local lSsources = {
+	null_ls.builtins.formatting.prettier.with({
+		filetypes = {
+			"javascript","typescript","css","scss","html","json","yaml","markdown","graphql","md","txt",
+		},
+	}),
+	null_ls.builtins.formatting.stylua,
+}
+null_ls.setup({
+	sources = lSsources,
+})
+vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.format()")
 
 
 local opts = {

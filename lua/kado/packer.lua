@@ -19,9 +19,9 @@ return require('packer').startup(function(use)
         run = ":TSUpdate"
     })
 
-
     use("nvim-telescope/telescope.nvim")
     use("nvim-lua/plenary.nvim")
+    use("jose-elias-alvarez/null-ls.nvim")
 
     use 'jiangmiao/auto-pairs'
     use 'aca/emmet-ls'
